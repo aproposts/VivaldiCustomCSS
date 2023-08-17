@@ -10,13 +10,12 @@
     --tabbar-wrapper-width : var(--icon-width);
 }
 
-/* IF the tabbar is overflowing, allow space for the scrollbar. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-container.left.overflow) {
     width                  : calc(var(--icon-width) + var(--scrollbar-width));
     --tabbar-wrapper-width : calc(var(--icon-width) + var(--scrollbar-width));
 }
 
-#tabs-tabbar-container.left>.overflow {
+#tabs-tabbar-container.left > .overflow {
     min-width : calc(var(--icon-width) + var(--scrollbar-width));
 }
 
@@ -45,32 +44,31 @@
 }
 
 /* Ensure child elements stay within the width of the outer tabbar-wrapper. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left)>* {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left) > * {
     max-width : var(--tabbar-wrapper-width);
 }
 
-
 /* On hover or active, allow child elements to take as much room as they please. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active)>* {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active) > * {
     max-width : 100vw;
 }
 
 /* Align the Workspace button with the icons. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left)>.tabbar-workspace-button>button {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left) > .tabbar-workspace-button > button {
     margin : auto;
 }
 
 /* Hide the Workspace button title and menu indicator. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left)>.tabbar-workspace-button>button> :nth-child(n+2) {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left) > .tabbar-workspace-button > button > :nth-child(n+2) {
     display : none;
 }
 
 /* Reveal the Workspace button menu indicator if the tabbar is set to two-level. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(#tabs-subcontainer.left)>.tabbar-workspace-button>button>:last-child {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(#tabs-subcontainer.left) > .tabbar-workspace-button > button > :last-child {
     display : flex;
 }
 
 /* Reveal the Workspace button title and menu indicator on hover and active. */
-.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active)>.tabbar-workspace-button>button>:nth-child(n+2) {
+.tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active) > .tabbar-workspace-button > button > :nth-child(n+2) {
     display : flex;
 }
