@@ -1,76 +1,76 @@
 /* Set the width variables. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-container.left) {
-	--icon-width		: 30px;
-	--scrollbar-width	: 15px;
+    --icon-width      : 30px;
+    --scrollbar-width : 15px;
 }
 
 /* Apply the icon-width as the default for the outer tabbar-wrapper. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-container.left) {
-	width					: var(--icon-width);
-	--tabbar-wrapper-width	: var(--icon-width);
+    width                  : var(--icon-width);
+    --tabbar-wrapper-width : var(--icon-width);
 }
 
 /* IF the tabbar is overflowing, allow space for the scrollbar. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-container.left.overflow) {
-	width					: calc(var(--icon-width) + var(--scrollbar-width));
-	--tabbar-wrapper-width	: calc(var(--icon-width) + var(--scrollbar-width));
+    width                  : calc(var(--icon-width) + var(--scrollbar-width));
+    --tabbar-wrapper-width : calc(var(--icon-width) + var(--scrollbar-width));
 }
 
 #tabs-tabbar-container.left>.overflow {
-	min-width	: calc(var(--icon-width) + var(--scrollbar-width));
+    min-width : calc(var(--icon-width) + var(--scrollbar-width));
 }
 
 /* If the tabbar is set to two-level, allow space for both columns of icons. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-subcontainer.left) {
-	width					: calc(var(--icon-width) * 2);
-	--tabbar-wrapper-width	: calc(var(--icon-width) * 2);
+    width                  : calc(var(--icon-width) * 2);
+    --tabbar-wrapper-width : calc(var(--icon-width) * 2);
 }
 
 /* If the tabbar is set to two-level and either the container or subcontainer are overflowing, allow space for one scrollbar. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-subcontainer.left):has(.overflow) {
-	width					: calc(var(--icon-width) * 2 + var(--scrollbar-width));
-	--tabbar-wrapper-width	: calc(var(--icon-width) * 2 + var(--scrollbar-width));
+    width                  : calc(var(--icon-width) * 2 + var(--scrollbar-width));
+    --tabbar-wrapper-width : calc(var(--icon-width) * 2 + var(--scrollbar-width));
 }
 
 /* If the tabbar is set to two-level and both are overflowing, allow space for two scrollbars. */
 .tabbar-wrapper:has(> .tabbar-wrapper):has(#tabs-subcontainer.left.overflow):has(#tabs-container.overflow) {
-	width					: calc(var(--icon-width) * 2 + var(--scrollbar-width) * 2);
-	--tabbar-wrapper-width	: calc(var(--icon-width) * 2 + var(--scrollbar-width) * 2);
+    width                  : calc(var(--icon-width) * 2 + var(--scrollbar-width) * 2);
+    --tabbar-wrapper-width : calc(var(--icon-width) * 2 + var(--scrollbar-width) * 2);
 }
 
 /* Absolutely position the inner tabbar-wrapper. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left) {
-	position	: absolute;
-	z-index	: 1;
+    position : absolute;
+    z-index  : 1;
 }
 
 /* Ensure child elements stay within the width of the outer tabbar-wrapper. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left)>* {
-	max-width	: var(--tabbar-wrapper-width);
+    max-width : var(--tabbar-wrapper-width);
 }
 
 
 /* On hover or active, allow child elements to take as much room as they please. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active)>* {
-	max-width	: 100vw;
+    max-width : 100vw;
 }
 
 /* Align the Workspace button with the icons. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left)>.tabbar-workspace-button>button {
-	margin	: auto;
+    margin : auto;
 }
 
 /* Hide the Workspace button title and menu indicator. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left)>.tabbar-workspace-button>button> :nth-child(n+2) {
-	display	: none;
+    display : none;
 }
 
 /* Reveal the Workspace button menu indicator if the tabbar is set to two-level. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left):has(#tabs-subcontainer.left)>.tabbar-workspace-button>button>:last-child {
-	display	: flex;
+    display : flex;
 }
 
 /* Reveal the Workspace button title and menu indicator on hover and active. */
 .tabbar-wrapper:has(> #tabs-tabbar-container.left):has(:hover, :active)>.tabbar-workspace-button>button>:nth-child(n+2) {
-	display	: flex;
+    display : flex;
 }
